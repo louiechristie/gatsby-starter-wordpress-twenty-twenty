@@ -7,17 +7,13 @@ const Footer = ({}) => {
     <footer id="site-footer" role="contentinfo" className="header-footer-group">
       <div className="section-inner">
         <div className="footer-credits">
-          <p className="footer-copyright">
-            © {moment().format("YYYY")}{" "}
-            <Link to={"/"}>Gatsby Starter WordPress Twenty Twenty</Link>
-          </p>
+          <p className="footer-copyright">© {moment().format("YYYY")} </p>
           <p>
             <a
               className="powered-by-wordpress"
-              href="https://www.henrikwirth.com"
-              rel="noreferrer noopener"
+              href="https://www.louiechristie.com"
             >
-              Proudly presented by Henrik Wirth
+              By Louie Christie
             </a>
           </p>
         </div>

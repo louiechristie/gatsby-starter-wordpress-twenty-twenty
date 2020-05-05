@@ -8,10 +8,11 @@ require("dotenv").config({
 })
 
 module.exports = {
+  pathPrefix: "/blog",
   siteMetadata: {
-    title: `Gatsby WordPress Twenty Twenty`,
-    description: `Gatsby starter site for Twenty Twenty Gatsby Theme.`,
-    author: `@henrikwirth`,
+    title: `Creative Tech Blog`,
+    description: `Gatsby Theme for Creative Tech Blog powered by headless WordPress JAM stack.`,
+    author: `@louiechristie`,
   },
   plugins: [
     `gatsby-plugin-notifications`,
@@ -27,6 +28,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress-experimental`,
       options: {
+        pathPrefix: "/blog",
         url: process.env.WPGRAPHQL_URL,
         verbose: true,
         schema: {
@@ -57,8 +59,9 @@ module.exports = {
           {
             resolve: `gatsby-wordpress-experimental-inline-images`,
             options: {
+              pathPrefix: "/blog",
               baseUrl: process.env.WP_BASE_URL,
-              protocol: `https`,
+              protocol: `http`,
             },
           },
         ],
@@ -107,5 +110,17 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Creative Tech Blog`,
+        short_name: `Creative Tech Blog`,
+        start_url: `/`,
+        background_color: `#FFFFFF`,
+        theme_color: `#1e73be`,
+        display: `browser`,
+        icon: `src/assets/images/icon.jpg`,
+      },
+    }
   ],
 }
