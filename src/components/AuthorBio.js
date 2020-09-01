@@ -1,9 +1,11 @@
 import React from "react"
 import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill"
 import { Link } from "gatsby"
-import { normalizePath } from "../utils/normalize-path"
 
 const AuthorBio = ({ author }) => {
+  author = author?.node
+  if (!author.description) return null
+
   const description = author.description.replace(/(\r\n|\n|\r)/gm, "<br/>")
 
   return (
@@ -26,11 +28,7 @@ const AuthorBio = ({ author }) => {
       <div className="author-description">
         <div dangerouslySetInnerHTML={{ __html: description }} />
 
-        <Link
-          className="author-link"
-          to={normalizePath(author.uri)}
-          rel="author"
-        >
+        <Link className="author-link" to={author.uri} rel="author">
           View Archive <span aria-hidden="true">→</span>{" "}
         </Link>
       </div>
