@@ -1375,6 +1375,7 @@ ul.social-icons li {
   font-size: 2.1rem;
   font-weight: 600;
   line-height: 1;
+  color: var(--header-font-color);
 }
 
 .site-title a {
@@ -4876,7 +4877,6 @@ a.to-the-top > * {
   .site-title {
     font-size: 2.4rem;
     font-weight: 700;
-    color: var(--header-font-color);
   }
 
   .site-description {
