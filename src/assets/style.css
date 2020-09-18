@@ -49,6 +49,16 @@ with others.
 
 /* -------------------------------------------------------------------------- */
 
+/*	-1. Color variables
+/* -------------------------------------------------------------------------- */
+:root {
+  --main-bg-color: #fff;
+  --header-bg-color: #000;
+  --header-font-color: #fff;
+}
+
+/* -------------------------------------------------------------------------- */
+
 /*	0. CSS Reset
 /* -------------------------------------------------------------------------- */
 
@@ -121,7 +131,7 @@ html {
 }
 
 body {
-  background: #f5efe0;
+  background: var(--main-bg-color);
   box-sizing: border-box;
   color: #000;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica,
@@ -1329,7 +1339,7 @@ ul.social-icons li {
 /* -------------------------------------------------------------------------- */
 
 #site-header {
-  background: #fff;
+  background: var(--header-bg-color);
   position: relative;
 }
 
@@ -2748,7 +2758,7 @@ h2.entry-title {
 
 :root .has-primary-background-color {
   background-color: #000;
-  color: #f5efe0;
+  color: var(--main-bg-color);
 }
 
 :root .has-secondary-color {
@@ -2770,11 +2780,11 @@ h2.entry-title {
 }
 
 :root .has-background-color {
-  color: #f5efe0;
+  color: var(--main-bg-color);
 }
 
 :root .has-background-background-color {
-  background-color: #f5efe0;
+  background-color: var(--main-bg-color);
   color: #000;
 }
 
@@ -4866,6 +4876,7 @@ a.to-the-top > * {
   .site-title {
     font-size: 2.4rem;
     font-weight: 700;
+    color: var(--header-font-color);
   }
 
   .site-description {
