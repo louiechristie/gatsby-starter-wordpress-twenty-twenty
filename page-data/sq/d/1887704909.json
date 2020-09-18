@@ -1,0 +1,1 @@
+{"data":{"wpMenu":{"name":"primary","menuItems":{"nodes":[{"label":"About","url":"/about/","databaseId":791,"connectedNode":{"node":{"__typename":"WpPage","uri":"/about/"}}},{"label":"Contact","url":"/contact/","databaseId":353,"connectedNode":{"node":{"__typename":"WpPage","uri":"/contact/"}}}]}}}}
