@@ -1,6 +1,5 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import { normalizePath } from "../utils/normalize-path"
 import UniversalLink from "./UniversalLink"
 
 const Menu = () => {
@@ -12,10 +11,12 @@ const Menu = () => {
           nodes {
             label
             url
-            menuItemId
-            connectedObject {
-              ... on WpContentNode {
-                uri
+            databaseId
+            connectedNode {
+              node {
+                ... on WpContentNode {
+                  uri
+                }
               }
             }
           }
@@ -34,10 +35,9 @@ const Menu = () => {
     >
       <ul className="primary-menu reset-list-style">
         {wpMenu.menuItems.nodes.map((menuItem, i) => {
-          const path = normalizePath(
-            menuItem?.connectedObject?.uri ?? menuItem.url
-          )
-          const itemId = "menu-item-" + menuItem.menuItemId
+          const path = menuItem?.connectedNode?.node?.uri ?? menuItem.url
+
+          const itemId = "menu-item-" + menuItem.databaseId
 
           return (
             <li

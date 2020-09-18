@@ -2,11 +2,9 @@
 
 .idea
 
-# Custom
-
-WordPress/web/
-
-fakerpress.zip
+# WordPress
+WordPress
+.wordpress-cache
 
 # Logs
 logs
@@ -74,4 +72,4 @@ yarn-error.log
 !.env.example
 .DS_Store
 
-.wordpress-cache
+

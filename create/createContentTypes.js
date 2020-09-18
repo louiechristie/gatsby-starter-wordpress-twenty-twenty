@@ -1,17 +1,20 @@
 const { resolve } = require(`path`)
 
+const capitalize = (s) => {
+  if (typeof s !== "string") return ""
+  return s.charAt(0).toUpperCase() + s.slice(1)
+}
+
 module.exports = async ({ actions, graphql }, options) => {
   const { templates } = options
 
   const {
     data: { allWpContentType },
-  } = await graphql(`
+  } = await graphql(/* GraphQL */ `
     query ALL_CONTENT_TYPES {
-      allWpContentType {
+      allWpContentType(filter: { graphqlPluralName: { ne: "mediaItems" } }) {
         nodes {
-          singularName
-          pluralName
-          nodesTypeName
+          graphqlSingleName
         }
       }
     }
@@ -22,29 +25,26 @@ module.exports = async ({ actions, graphql }, options) => {
   )
 
   for (const contentType of allWpContentType.nodes) {
-    const { nodesTypeName, singularName } = contentType
+    const { graphqlSingleName } = contentType
 
-    // this is a super super basic template hierarchy
-    // this doesn't reflect what our hierarchy will look like.
-    // this is for testing/demo purposes
     const contentTypeTemplate = contentTypeTemplates.find(
-      (path) => path === `./src/templates/types/${singularName}.js`
+      (path) => path === `./src/templates/types/${graphqlSingleName}.js`
     )
 
     if (!contentTypeTemplate) {
       continue
     }
 
-    const gatsbyNodeListFieldName = `allWp${nodesTypeName}`
+    const gatsbyNodeListFieldName = `allWp${capitalize(graphqlSingleName)}`
 
-    const { data } = await graphql(`
+    const { data } = await graphql(/* GraphQL */ `
           query ALL_CONTENT_NODES {
             ${gatsbyNodeListFieldName} {
               nodes {
                 uri
                 id
                 date
-                ${singularName === "page" ? "isFrontPage" : ""}
+                ${graphqlSingleName === "page" ? "isFrontPage" : ""}
               }
             }
           }
@@ -54,16 +54,13 @@ module.exports = async ({ actions, graphql }, options) => {
 
     await Promise.all(
       nodes.map(async (node, i) => {
-        // @todo: determine why pages using allWpContentNode queries
-        // don't get automatically updated with incremental data fetching
-
         await actions.createPage({
           component: resolve(contentTypeTemplate),
           path: node.isFrontPage ? "/" : node.uri,
           context: {
             id: node.id,
-            nextPage: (nodes[i + 1] || {}).id,
-            previousPage: (nodes[i - 1] || {}).id,
+            nextPage: (nodes[i - 1] || {}).id,
+            previousPage: (nodes[i + 1] || {}).id,
           },
         })
       })

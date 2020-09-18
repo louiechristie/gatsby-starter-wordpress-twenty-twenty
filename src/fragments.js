@@ -32,17 +32,21 @@ export const fragments = graphql`
     title
     databaseId
     excerpt
-    date
+    date(formatString: "LL")
     featuredImage {
-      remoteFile {
-        ...Thumbnail
+      node {
+        remoteFile {
+          ...Thumbnail
+        }
       }
     }
     author {
-      name
-      firstName
-      lastName
-      uri
+      node {
+        name
+        firstName
+        lastName
+        uri
+      }
     }
     categories {
       nodes {
@@ -56,25 +60,29 @@ export const fragments = graphql`
   fragment PostContent on WpPost {
     title
     content
-    date
+    date(formatString: "LL")
     excerpt
     featuredImage {
-      remoteFile {
-        ...HeroImage
+      node {
+        remoteFile {
+          ...HeroImage
+        }
       }
     }
     author {
-      name
-      firstName
-      lastName
-      uri
-      description
-      avatar {
-        url
-        width
-        height
-        imageFile {
-          ...AvatarImage
+      node {
+        name
+        firstName
+        lastName
+        uri
+        description
+        avatar {
+          url
+          width
+          height
+          imageFile {
+            ...AvatarImage
+          }
         }
       }
     }
@@ -92,8 +100,10 @@ export const fragments = graphql`
     content
     databaseId
     featuredImage {
-      remoteFile {
-        ...HeroImage
+      node {
+        remoteFile {
+          ...HeroImage
+        }
       }
     }
   }
