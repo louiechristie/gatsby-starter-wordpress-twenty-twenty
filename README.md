@@ -6,6 +6,14 @@ Gatsby Theme for Creative Tech Blog powered by headless WordPress JAM stack.
 
 - [@LouieChristie](https://github.com/louiechristie)
 
+## Deploy
+
+```console
+yarn deploy
+```
+
+It will build the site and deploy it to the gh-pages branch on Github.
+
 ## Based on [Gatsby Starter Wordpress Twenty Twenty Theme](https://github.com/henrikwirth/gatsby-starter-wordpress-twenty-twenty)
 
 A port of the WordPress Twenty Twenty theme to Gatsby.
