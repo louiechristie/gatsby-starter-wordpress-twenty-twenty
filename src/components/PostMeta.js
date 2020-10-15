@@ -3,6 +3,9 @@ import AuthorIcon from "../assets/svg/author.inline.svg"
 import { Link } from "gatsby"
 import DateIcon from "../assets/svg/date.inline.svg"
 import CommentIcon from "../assets/svg/comment.inline.svg"
+import packageJson from '../../package.json';
+
+const url = packageJson?.author?.url;
 
 const PostMeta = ({ author, title, date }) => {
   author = author?.node
@@ -12,11 +15,13 @@ const PostMeta = ({ author, title, date }) => {
         <li className="post-author meta-wrapper">
           <span className="meta-icon">
             <span className="screen-reader-text">Post author</span>
-            <AuthorIcon />
+            <Link to={url}>
+              <AuthorIcon />            
+            </Link>
           </span>
           <span className="meta-text">
             By{" "}
-            <Link to={author.uri}>
+            <Link to={url}>
               {author.firstName
                 ? author.lastName
                   ? author.firstName + " " + author.lastName

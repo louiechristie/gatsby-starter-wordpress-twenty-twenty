@@ -1,6 +1,10 @@
 import React from "react"
 import GatsbyImageWithIEPolyfill from "gatsby-image/withIEPolyfill"
 import { Link } from "gatsby"
+import packageJson from '../../package.json';
+
+const url = packageJson?.author?.url;
+
 
 const AuthorBio = ({ author }) => {
   author = author?.node
@@ -13,23 +17,27 @@ const AuthorBio = ({ author }) => {
       <div className="author-title-wrapper">
         <div className="author-avatar vcard">
           <div className="avatar avatar-160 wp-user-avatar wp-user-avatar-160 alignnone photo">
-            {author?.avatar?.imageFile?.childImageSharp && (
-              <GatsbyImageWithIEPolyfill
-                fixed={author.avatar.imageFile.childImageSharp.fixed}
-                objectFit="cover"
-                objectPosition="50% 50%"
-                className="avatar"
-              />
-            )}
+            <Link className="author-link" to={url}>
+
+              {author?.avatar?.imageFile?.childImageSharp && (
+                <GatsbyImageWithIEPolyfill
+                  fixed={author.avatar.imageFile.childImageSharp.fixed}
+                  objectFit="cover"
+                  objectPosition="50% 50%"
+                  className="avatar"
+                />
+              )}
+            </Link> 
           </div>
         </div>
-        <h2 className="author-title heading-size-4">By {author.name}</h2>
+        <Link className="author-link" to={url}>
+          <h2 className="author-title heading-size-4">By {author.name}</h2>
+        </Link>
       </div>
       <div className="author-description">
         <div dangerouslySetInnerHTML={{ __html: description }} />
-
-        <Link className="author-link" to={author.uri} rel="author">
-          View Archive <span aria-hidden="true">→</span>{" "}
+        <Link className="author-link" to={packageJson?.author?.url}>
+          View Homepage <span aria-hidden="true">→</span>{" "}
         </Link>
       </div>
     </div>
