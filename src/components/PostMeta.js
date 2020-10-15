@@ -16,7 +16,7 @@ const PostMeta = ({ author, title, date }) => {
           </span>
           <span className="meta-text">
             By{" "}
-            <Link to={author.uri}>
+            <Link to={author.url}>
               {author.firstName
                 ? author.lastName
                   ? author.firstName + " " + author.lastName

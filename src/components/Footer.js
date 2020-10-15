@@ -7,15 +7,11 @@ const Footer = ({}) => {
     <footer id="site-footer" role="contentinfo" className="header-footer-group">
       <div className="section-inner">
         <div className="footer-credits">
-          <p className="footer-copyright">© {moment().format("YYYY")} </p>
-          <p>
-            <a
-              className="powered-by-wordpress"
+          <p className="footer-copyright">© {moment().format("YYYY")} <a
               href="https://www.louiechristie.com"
             >
-              By Louie Christie
-            </a>
-          </p>
+              Louie Christie
+            </a></p>
         </div>
 
         <a className="to-the-top" href="#site-header">

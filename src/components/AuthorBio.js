@@ -28,8 +28,8 @@ const AuthorBio = ({ author }) => {
       <div className="author-description">
         <div dangerouslySetInnerHTML={{ __html: description }} />
 
-        <Link className="author-link" to={author.uri} rel="author">
-          View Archive <span aria-hidden="true">→</span>{" "}
+        <Link className="author-link" to={author.url} rel="author">
+          View Homepage <span aria-hidden="true">→</span>{" "}
         </Link>
       </div>
     </div>

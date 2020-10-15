@@ -46,6 +46,7 @@ export const fragments = graphql`
         firstName
         lastName
         uri
+        url
       }
     }
     categories {
@@ -75,6 +76,7 @@ export const fragments = graphql`
         firstName
         lastName
         uri
+        url
         description
         avatar {
           url

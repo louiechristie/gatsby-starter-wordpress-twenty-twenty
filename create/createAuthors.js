@@ -12,6 +12,7 @@ module.exports = async ({ actions, graphql }, options) => {
           databaseId
           slug
           name
+          url
         }
       }
     }
@@ -29,6 +30,7 @@ module.exports = async ({ actions, graphql }, options) => {
                         uri
                         databaseId
                         slug
+                        url
                     }
                 }
             }
