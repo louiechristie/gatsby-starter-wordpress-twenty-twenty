@@ -3,6 +3,24 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
+const detailsQuery = graphql`
+  query DefaultSEOQuery {
+    site {
+      siteMetadata {
+        title
+        description
+        author
+        monetization
+      }
+    }
+    wp {
+      generalSettings {
+        title
+        description
+      }
+    }
+  }
+`
 function Seo({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
@@ -18,6 +36,8 @@ function Seo({ description, lang, meta, keywords, title }) {
               data.site.siteMetadata.title
             }`
           : data.wp.generalSettings.description || data.site.siteMetadata.title
+        const monetization =
+          data.site.siteMetadata.monetization
         return (
           <Helmet
             htmlAttributes={{
@@ -58,6 +78,10 @@ function Seo({ description, lang, meta, keywords, title }) {
                 name: `twitter:description`,
                 content: metaDescription,
               },
+              {
+                name: `monetization`,
+                content: monetization,
+              },
             ]
               .concat(
                 keywords.length > 0
@@ -88,23 +112,5 @@ Seo.propTypes = {
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
 }
-
-const detailsQuery = graphql`
-  query DefaultSEOQuery {
-    site {
-      siteMetadata {
-        title
-        description
-        author
-      }
-    }
-    wp {
-      generalSettings {
-        title
-        description
-      }
-    }
-  }
-`
 
 export default Seo

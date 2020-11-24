@@ -13,6 +13,7 @@ module.exports = {
     title: `Creative Tech Blog`,
     description: `Gatsby Theme for Creative Tech Blog powered by headless WordPress JAM stack.`,
     author: `@louiechristie`,
+    monetization: `$ilp.gatehub.net/484331722`
   },
   plugins: [
     `gatsby-plugin-notifications`,
