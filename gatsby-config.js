@@ -95,6 +95,17 @@ module.exports = {
         display: `browser`,
         icon: `src/assets/images/icon.jpg`,
       },
-    }
+    },
+    {
+      resolve: `gatsby-plugin-mailgo`,
+      options: {
+        mailgoConfig: {
+          showFooter: false,
+          actions: {
+            whatsapp: false,
+          },
+        },
+      },
+    },
   ],
 }
