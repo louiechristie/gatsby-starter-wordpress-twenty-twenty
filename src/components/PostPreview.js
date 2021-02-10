@@ -30,7 +30,9 @@ const PostPreview = ({ post, isLast }) => {
           </div>
         </header>
 
-        <FeaturedMedia image={post.featuredImage} />
+        <Link to={post.uri}>
+          <FeaturedMedia image={post.featuredImage} />
+        </Link>
 
         <div className="post-inner thin ">
           <div className="entry-content">
@@ -38,6 +40,12 @@ const PostPreview = ({ post, isLast }) => {
           </div>
         </div>
       </article>
+
+      <div class="wp-block-button has-text-align-center">
+        <Link className="wp-block-button__link" to={post.uri}>
+          Continue reading
+        </Link>
+      </div>
 
       {!isLast && (
         <hr
