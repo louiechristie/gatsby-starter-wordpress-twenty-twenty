@@ -16,7 +16,7 @@
     "cbuild": "gatsby clean && gatsby build",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "deploy": "yarn clean && gatsby build --prefix-paths && gh-pages -d public"
+    "deploy": "npm run clean && gatsby build --prefix-paths && gh-pages -d public"
   },
   "dependencies": {
     "dotenv": "^8.2.0",
