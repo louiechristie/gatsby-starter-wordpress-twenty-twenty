@@ -1,0 +1,2 @@
+(self.webpackChunkcreative_tech_blog=self.webpackChunkcreative_tech_blog||[]).push([[883],{9616:function(e,t,l){"use strict";l.r(t);var n=l(7294),c=l(492);t.default=function(){return n.createElement(c.Z,null,n.createElement("div",null,n.createElement("h1",null,"Oops, that's a 404")))}}}]);
+//# sourceMappingURL=component---src-pages-404-js-b7633b5772f7a8771353.js.map
