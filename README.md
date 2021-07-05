@@ -18,31 +18,34 @@ It will build the site and deploy it to the gh-pages branch on Github.
 
 A port of the WordPress Twenty Twenty theme to Gatsby.
 
-**Works pretty well but still a work in progress**
+---
 
-This starter uses an early alpha version of the upcoming `gatsby-source-wordpress@v4`. You can find rough documentation for that package [here](https://github.com/TylerBarnes/gatsby/blob/feat/source-wordpress-v4/packages/gatsby-source-wordpress-experimental/README.md).
+This starter uses **Gatsby V3** and the new `gatsby-source-wordpress@v5`. You can find documentation for that package [here](https://www.gatsbyjs.com/plugins/gatsby-source-wordpress/).
 
-Checkout some options of the source plugin: [defaultPluginOptions](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental/blob/master/src/models/gatsby-api.js#L6)
+Checkout some options of the source plugin: [plugin-options.md](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/docs/plugin-options.md)
 
 ## Plugin Versions
 
 Last tested with the following plugin versions.
 
-- WPGraphQL: 0.12.1
-- WPGatsby: 0.4.16
-- gatsby-source-wordpress-experimental: 1.3.6
+- WPGraphQL: 1.3.5
+- WPGatsby: 1.0.8
+- gatsby-source-wordpress: 5.5.0
+- gatsby-plugin-image: 1.5.0
 
 ## WordPress Setup
 
 1. Make sure to install the two required WP plugins [wp-gatsby](https://github.com/gatsbyjs/wp-gatsby) and [wp-graphql](https://github.com/wp-graphql/wp-graphql)
 2. Best you install and activate the default WordPress Twenty Twenty theme
-3. Make sure you have Menus with the following slugs:
-   - `primary` - Thats the top menu
-   - `extended` - That is the menu that opens on the right side as drawer
-   - `social-links-menu` - For the Social menu in the footer and in the expanded drawer
-      - For the social Icons you need to adjust `SocialMenu.js`. There is a `SocialIcon` function that parses svgs depending on the Link label
-4. Rename `.env.example` file to `.env` and edit it with your domain variables.
-
+3. Make sure you have Menus with the following slugs: 
+   -  `primary` - Thats the top menu
+   -  `extended` - That is the menu that opens on the right side as drawer
+   -  `social-links-menu` - For the Social menu in the footer and in the expanded drawer
+      -  For the social Icons you need to adjust `SocialMenu.js`. There is a `SocialIcon` function that parses svgs depending on the Link label
+4. Rename `.env.example` file to `.env` and edit it with your domain variables. Make sure to fill all variables properly.
+   - `WPGRAPHQL_URL` - Your GraphQL endpoint
+   - `SITE_URL` - Your frontend domain (without ending slash) to stitch together SEO relevant image urls.
+      
 ## Limitations
 
 - Comments are not implemented yet.
@@ -54,7 +57,7 @@ Last tested with the following plugin versions.
 
 4. Copy .env.example file to .env and change Environment variables to location to your WordPress instance
 
-- [gatsby-source-wordpress-experimental](https://github.com/gatsbyjs/gatsby-source-wordpress-experimental)
+- [gatsby-source-wordpress (v5)](https://github.com/gatsbyjs/gatsby/blob/master/packages/gatsby-source-wordpress/README.md)
 - [WPGatsby - WordPress Plugin](https://github.com/gatsbyjs/wp-gatsby)
 - [Twenty Twenty - WordPress Theme](https://de.wordpress.org/themes/twentytwenty/)
 

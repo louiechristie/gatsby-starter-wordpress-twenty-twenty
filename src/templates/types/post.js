@@ -9,10 +9,11 @@ import PostMeta from "../../components/PostMeta"
 import PostCategories from "../../components/PostCategories"
 import FeaturedMedia from "../../components/FeaturedMedia"
 
-export default ({ data }) => {
+const post = ({ data }) => {
   const { nextPage, previousPage, page } = data
   const {
     title,
+    uri,
     content,
     featuredImage,
     categories,
@@ -26,7 +27,7 @@ export default ({ data }) => {
     <Layout
       bodyClass={`post-template-default single single-post postid-${databaseId} single-format-standard wp-embed-responsive singular has-post-thumbnail has-single-pagination showing-comments footer-top-visible customize-support`}
     >
-      <Seo title={title} description={excerpt} />
+      <Seo title={title} description={excerpt} socialImage={featuredImage?.node} uri={uri} />
 
       <article
         className={`post-${databaseId} post type-post status-publish format-standard has-post-thumbnail hentry category-uncategorized`}
@@ -81,3 +82,5 @@ export const query = graphql`
     }
   }
 `
+
+export default post;

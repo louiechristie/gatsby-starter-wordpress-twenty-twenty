@@ -13,9 +13,11 @@ module.exports = {
     title: `Creative Tech Blog`,
     description: `Gatsby Theme for Creative Tech Blog powered by headless WordPress JAM stack.`,
     author: `@louiechristie`,
+    siteUrl: process.env.SITE_URL,
     monetization: `$ilp.gatehub.net/484331722`
   },
   plugins: [
+    `gatsby-plugin-image`,
     `gatsby-plugin-notifications`,
     `gatsby-plugin-sharp`,
     {
@@ -25,9 +27,8 @@ module.exports = {
         path: `${__dirname}/src/assets/images`,
       },
     },
-    `gatsby-plugin-netlify-cache`,
     {
-      resolve: `gatsby-source-wordpress-experimental`,
+      resolve: `gatsby-source-wordpress`,
       options: {
         pathPrefix: "/blog",
         url: process.env.WPGRAPHQL_URL,
@@ -40,16 +41,6 @@ module.exports = {
             writeQueriesToDisk: true,
           },
         },
-        plugins: [
-          {
-            resolve: `gatsby-wordpress-experimental-inline-images`,
-            options: {
-              pathPrefix: "/blog",
-              baseUrl: process.env.WP_BASE_URL,
-              protocol: `http`,
-            },
-          },
-        ],
         html: {
           fallbackImageMaxWidth: 800,
         },
