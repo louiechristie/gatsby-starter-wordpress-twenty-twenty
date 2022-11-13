@@ -11,12 +11,12 @@
   "scripts": {
     "develop": "yarn gatsby develop",
     "clean": "yarn gatsby clean",
-    "build": "yarn gatsby build",
+    "build": "yarn gatsby build --prefix-paths",
     "cdev": "yarn gatsby clean && yarn gatsby develop",
     "cbuild": "yarn gatsby clean && yarn gatsby build",
     "start": "yarn develop",
     "serve": "yarn gatsby serve",
-    "deploy": "yarn gatsby build --prefix-paths && yarn gh-pages -d public"
+    "deploy": "yarn gatsby build --prefix-paths && rsync -avP ~/Documents/blog/public/ pi@192.168.1.101:/var/www/html/blog"
   },
   "dependencies": {
     "dotenv": "^9.0.2",
