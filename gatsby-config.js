@@ -30,7 +30,6 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        pathPrefix: "/blog",
         url: process.env.WPGRAPHQL_URL,
         verbose: true,
         develop: {
