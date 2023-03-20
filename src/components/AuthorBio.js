@@ -23,11 +23,13 @@ const AuthorBio = ({ author }) => {
             <GatsbyImage
               image={avatar}
               className="avatar"
-              alt={author.name} />
+              alt={author.name} 
+              style={{width: "100%", height: "100%", verticalAlign: 'center'}}
+               />
           </div>
         </div>
         <Link className="author-link" to={url}>
-          <h2 className="author-title heading-size-4">By {author.name}</h2>
+          <div className="author-title heading-size-4">By {author.name}</div>
         </Link>
       </div>
       <div className="author-description">
